@@ -10,10 +10,11 @@ export class ArchivioComponent {
   arrayPg: any;
   user:any
   flagDownloadData:boolean = false;
+  arrayPgCompara:any = JSON.parse(localStorage.getItem("arrayPgCompara") || "[]");
   constructor(private httpClient:HttpClient){}
   async ngOnInit() {
      this.getData()
-
+    
    this.user = JSON.parse(localStorage.getItem("User") || "");
    setTimeout(() => {
     this.flagDownloadData = true;
@@ -41,7 +42,9 @@ export class ArchivioComponent {
    
     }
     addInCompare(pg:any){
-
+      this.arrayPgCompara.push(pg)
+      localStorage.setItem("arrayPgCompara", JSON.stringify(this.arrayPgCompara));
+      this.arrayPgCompara = JSON.parse(localStorage.getItem("arrayPgCompara") || "[]");
     }
     delete(id:string){
   

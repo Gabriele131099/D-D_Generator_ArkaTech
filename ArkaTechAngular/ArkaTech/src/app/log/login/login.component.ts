@@ -57,7 +57,7 @@ export class LoginComponent {
     if (user.password == this.profileForm.controls['password'].value) {
       console.log('loggato');
       localStorage.setItem( 'User',JSON.stringify(user));
-      localStorage.setItem("arrayPg", JSON.stringify([]));
+      localStorage.setItem("arrayPgCompara", JSON.stringify([]));
       window.location.href = 'http://localhost:4200/';
     } else {
       alert('dati non validi');
